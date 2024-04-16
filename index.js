@@ -1,13 +1,10 @@
-require('dotenv').config()
-const pokemonPrinetrFile = require("./pokemonPrinter")
+require("dotenv").config();
+const pokemonPrinetrFile = require("./pokemonPrinter");
 
-console.log(process.env.ENVIRONMENT_MESSAGE)
+console.log(process.env.ENVIRONMENT_MESSAGE);
 
-console.log("Terminal app is starting")
+console.log("Terminal app is starting");
 
+pokemonPrinetrFile.pokemonPrinter();
 
-pokemonPrinetrFile.pokemonPrinter()
-
-
-console.log("BYe BYe ! Terminal app is finished")
-console.log("fere k vayo")
+console.log("BYe BYe ! Terminal app is finished");
