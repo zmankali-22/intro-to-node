@@ -1,3 +1,7 @@
+require('dotenv').config()
+
+console.log(process.env.ENVIRONMENT_MESSAGE)
+
 console.log("Terminal app is starting")
 
 const pokemon = require("pokemon")
