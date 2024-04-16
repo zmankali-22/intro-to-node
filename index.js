@@ -1,5 +1,10 @@
 // require("dotenv").config();
-// const pokemonPrinetrFile = require("./pokemonPrinter");
+
+
+const { CustomFancyError } = require("./customError");
+const pokemonPrinterFile = require("./pokemonPrinter");
+
+
 
 // console.log(process.env.ENVIRONMENT_MESSAGE);
 
@@ -16,20 +21,31 @@ function app() {
 
   do {
     let n = parseFloat(prompt("How number of Pokemon do you want to see?    "));
-    console.log(typeof n);
-    console.log("Input is not a number:", isNaN(n));
+    // console.log(typeof n);
+    // console.log("Input is not a number:", isNaN(n));
 
     if (Number.isNaN(n)) {
-      throw new Error("User did not eneter a number");
+      throw new CustomFancyError("Custom Error for a NaN");
     }
-    console.log("You eneterd", n);
 
-    let userInputToExit = prompt("Would You like to try again? ");
-    if (userInputToExit === "y") {
-      userWantsToExit = false;
-    } else {
-      userWantsToExit = true;
+    try {
+        let pokemonName = pokemonPrinterFile.pokemonNameFromNumber(n)
+        console.log(`Your pokemon is ${pokemonName}! How exciting`)
+    
+    } catch (error) {
+        console.log("Try a lower umber betwn 1 and 10256")
+    } finally {
+        let userInputToExit = prompt("Would You like to try again? ");
+        if (userInputToExit === "y") {
+          userWantsToExit = false;
+        } else {
+          userWantsToExit = true;
+        }
     }
+
+    // console.log("You eneterd", n);
+
+ 
   } while (userWantsToExit === false);
 }
 try {
@@ -37,6 +53,7 @@ try {
 } catch (error) {
   console.log("Gracefully sutting down");
   console.log(error.message);
+  console.log(JSON.stringify(error));
 }
 
 // console.log("User enetered:", n)

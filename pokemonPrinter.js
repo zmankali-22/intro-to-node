@@ -1,9 +1,17 @@
+const pokemon = require("pokemon");
+
 function pokemonPrinter() {
-    const pokemon = require("pokemon")
+  let randomPokemon = pokemon.random();
 
-let randomPokemon = pokemon.random()
-
-console.log(`Today's pokemon is : ${randomPokemon}`)
+  console.log(`Today's pokemon is : ${randomPokemon}`);
 }
 
-module.exports = {pokemonPrinter}
+function pokemonNameFromNumber(targetNumber) {
+  let result = pokemon.getName(targetNumber);
+  return result;
+}
+
+module.exports = {
+  pokemonPrinter,
+  pokemonNameFromNumber,
+};
