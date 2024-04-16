@@ -10,3 +10,4 @@ pokemonPrinetrFile.pokemonPrinter()
 
 
 console.log("BYe BYe ! Terminal app is finished")
+console.log("fere k vayo")
